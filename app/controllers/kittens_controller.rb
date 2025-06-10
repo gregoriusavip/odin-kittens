@@ -45,6 +45,6 @@ class KittensController < ApplicationController
   end
 
   def allowed_kittens_params
-    params.expect(kitten: [ :name, :age, :curteness, :softness ])
+    params.expect(kitten: [ :name, :age, :cuteness, :softness ])
   end
 end
