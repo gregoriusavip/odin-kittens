@@ -12,8 +12,9 @@ class KittensController < ApplicationController
     @kitten = Kitten.new(allowed_kittens_params)
 
     if @kitten.save
-      redirect_to @kitten
+      redirect_to @kitten, notice: "Created succsessfully"
     else
+      flash[:notice] = "Failed to create, #{ @kitten.errors.full_messages }"
       render :new, status: :unprocessable_entity
     end
   end
@@ -26,8 +27,9 @@ class KittensController < ApplicationController
 
   def update
     if @kitten.update(allowed_kittens_params)
-      redirect_to @kitten
+      redirect_to @kitten, notice: "Updated succsessfully"
     else
+      flash[:notice] = "Failed to update, #{ @kitten.errors.full_messages }"
       render :edit, status: :unprocessable_entity
     end
   end

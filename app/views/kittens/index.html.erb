@@ -1,3 +1,6 @@
+<%= render "flash" %>
+<%= button_to "Create Kitten", new_kitten_path, method: :get %>
+
 <% @kittens.each do |kitten| %>
     <h1> <%= kitten.name %> </h1>
     <ul>
